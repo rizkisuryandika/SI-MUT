@@ -50,16 +50,23 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.12\lib\net452\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Npgsql, Version=4.0.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.7\lib\net451\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -70,8 +77,25 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -92,62 +116,70 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormUtama.vb">
+    <Compile Include="Class_fileini.vb" />
+    <Compile Include="ddk_ThemeCollection.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form Chart\FormGrafikTahunan.Designer.vb">
+      <DependentUpon>FormGrafikTahunan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form Chart\FormGrafikTahunan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUtama.Designer.vb">
-      <DependentUpon>FormUtama.vb</DependentUpon>
+    <Compile Include="Form Chart\FormGrafikHarian.Designer.vb">
+      <DependentUpon>FormGrafikHarian.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form Chart\FormGrafikHarian.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <Compile Include="Form Master\FormMastRuang.Designer.vb">
+      <DependentUpon>FormMastRuang.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form3.vb">
+    <Compile Include="Form Master\FormMastRuang.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMastIndikator.Designer.vb">
+    <Compile Include="Form Master\FormMastKategori.Designer.vb">
+      <DependentUpon>FormMastKategori.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form Master\FormMastKategori.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Master\FormMastIndikator.Designer.vb">
       <DependentUpon>FormMastIndikator.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormMastIndikator.vb">
+    <Compile Include="Form Master\FormMastIndikator.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormIndikatorMutu.Designer.vb">
-      <DependentUpon>FormIndikatorMutu.vb</DependentUpon>
+    <Compile Include="Form Master\FormMastJenis.Designer.vb">
+      <DependentUpon>FormMastJenis.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormIndikatorMutu.vb">
+    <Compile Include="Form Master\FormMastJenis.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLapBulanan.Designer.vb">
-      <DependentUpon>FormLapBulanan.vb</DependentUpon>
+    <Compile Include="Form Chart\FormGrafikTriwulan.Designer.vb">
+      <DependentUpon>FormGrafikTriwulan.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormLapBulanan.vb">
+    <Compile Include="Form Chart\FormGrafikTriwulan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAInput.Designer.vb">
-      <DependentUpon>FormAInput.vb</DependentUpon>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormAInput.vb">
+    <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormJenis.Designer.vb">
-      <DependentUpon>FormJenis.vb</DependentUpon>
+    <Compile Include="Laporan\FormLapTriwulan.Designer.vb">
+      <DependentUpon>FormLapTriwulan.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormJenis.vb">
+    <Compile Include="Laporan\FormLapTriwulan.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKategori.Designer.vb">
-      <DependentUpon>FormKategori.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormKategori.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListItem.vb" />
     <Compile Include="Module1.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,26 +192,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormUtama.resx">
-      <DependentUpon>FormUtama.vb</DependentUpon>
+    <EmbeddedResource Include="Form Chart\FormGrafikTahunan.resx">
+      <DependentUpon>FormGrafikTahunan.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <EmbeddedResource Include="Form Chart\FormGrafikHarian.resx">
+      <DependentUpon>FormGrafikHarian.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMastIndikator.resx">
+    <EmbeddedResource Include="Form Master\FormMastRuang.resx">
+      <DependentUpon>FormMastRuang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Master\FormMastKategori.resx">
+      <DependentUpon>FormMastKategori.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Chart\FormGrafikTriwulan.resx">
+      <DependentUpon>FormGrafikTriwulan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form Master\FormMastIndikator.resx">
       <DependentUpon>FormMastIndikator.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormIndikatorMutu.resx">
-      <DependentUpon>FormIndikatorMutu.vb</DependentUpon>
+    <EmbeddedResource Include="Form Master\FormMastJenis.resx">
+      <DependentUpon>FormMastJenis.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLapBulanan.resx">
-      <DependentUpon>FormLapBulanan.vb</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAInput.resx">
-      <DependentUpon>FormAInput.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormKategori.resx">
-      <DependentUpon>FormKategori.vb</DependentUpon>
+    <EmbeddedResource Include="Laporan\FormLapTriwulan.resx">
+      <DependentUpon>FormLapTriwulan.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -189,10 +227,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -202,7 +236,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
